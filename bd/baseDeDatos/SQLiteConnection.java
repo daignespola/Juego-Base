@@ -1,8 +1,11 @@
 package baseDeDatos;
 
 import java.sql.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
+import principal.entes.personajes.Personaje;
 import principal.peticiones.CodigoPeticion;
 
 public class SQLiteConnection {
@@ -125,15 +128,22 @@ public class SQLiteConnection {
 		return CodigoPeticion.REGISTRO_INCORRECTO;
 	}*/
 	
-	public ResultSet listarRazas(){
+	public ArrayList<String> listarRazas(){
 		PreparedStatement pst = null;
 		try{
 			String query = "SELECT descripcion FROM raza";
 			pst= conn.prepareStatement(query); 
+			ArrayList<String> listaRazas = new ArrayList<String>();
 			ResultSet rs = pst.executeQuery();
+
+			while(rs.next()){
+				System.out.println("RESULT SET:"+rs.getString("DESCRIPCION"));
+				listaRazas.add(rs.getString("DESCRIPCION"));
+				
+			}
+			
 			System.out.println("HOLA");
-			System.out.println("--"+rs.getString(1));
-			return rs;
+			return listaRazas;
 			//return CodigoPeticion.LISTADO_CORRECTO;
 		}catch(SQLException sqle)
 		{
@@ -148,4 +158,5 @@ public class SQLiteConnection {
 		}
 		return null;// CodigoPeticion.LISTADO_INCORRECTO;
 	}
+
 }

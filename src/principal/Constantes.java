@@ -8,7 +8,7 @@ public class Constantes {
 
 	public static final int ANCHO_SPRITE = 32;
 	public static final int ALTO_SPRITE = 32;
-	
+ 	
 	public static int ANCHO_JUEGO = 640;
 	public static int ALTO_JUEGO = 360;
 

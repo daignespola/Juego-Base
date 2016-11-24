@@ -85,13 +85,11 @@ public class ServerThread extends Thread{
 			case CodigoPeticion.LISTAR_RAZAS:
 				PeticionListarRazas petListarRazas = (PeticionListarRazas) mjeIn.getObj();
 				try{
-					ResultSet rs = sv.getConexionBD().listarRazas();
-					ArrayList<String> listaRazas = new ArrayList<String>();
+					//ResultSet rs = sv.getConexionBD().listarRazas();
+					ArrayList<String> listaRazas = sv.getConexionBD().listarRazas();
+					//ArrayList<String> listaRazas = new ArrayList<String>();
 					System.out.println("RESULT SET va a cargar");
-					while(rs.next()){
-						System.out.println("RESULT SET:"+rs.getString("DESCRIPCION"));
-						listaRazas.add(rs.getString("DESCRIPCION"));
-					}
+
 					//if(rs.isAfterLast())
 					if(!listaRazas.isEmpty())
 					{
@@ -107,14 +105,10 @@ public class ServerThread extends Thread{
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 			}
 		}
 	}
-	
+	}
 	
 		
 }
