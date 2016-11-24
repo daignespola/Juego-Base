@@ -1,9 +1,0 @@
-CODIGOPETICION
-CLIENTE
-PETICION CREARPERSZONAJE
-PETICION LISTAR RAZAS
-SERVER THREAD
-sqlite connection
-
-
-hacer que el loguearse traiga el id del usuario y se la carge a alguna clase de socket
